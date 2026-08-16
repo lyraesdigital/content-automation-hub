@@ -1,0 +1,46 @@
+name: "Personaje Virtual - Generar contenido (Dropshipping + Hotmart)"
+
+on:
+  schedule:
+    - cron: "0 9 * * 2,5"   # Martes y viernes 09:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r virtual-character/requirements.txt
+
+      - name: Investigar producto/tendencia de temporada
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python virtual-character/scripts/trend_research.py
+
+      - name: Generar contenido del personaje (post + guion corto)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python virtual-character/scripts/generate_content.py
+
+      - name: Crear rama y abrir Pull Request para tu revisión
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "virtual-character/borrador-${{ github.run_number }}"
+          title: "[Revisar] Contenido personaje virtual - run ${{ github.run_number }}"
+          body: |
+            Incluye: producto/tendencia detectado y borrador de contenido del personaje.
+            Revisa consistencia de voz de marca antes de aprobar.
+          add-paths: |
+            virtual-character/output/**

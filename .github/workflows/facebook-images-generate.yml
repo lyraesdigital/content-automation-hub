@@ -1,0 +1,42 @@
+name: "Facebook Images - Generar contenido (motivación / religión / tarot)"
+
+on:
+  schedule:
+    - cron: "0 7 * * 1,3,5"   # Lunes, miércoles, viernes 07:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r facebook-images/requirements.txt
+
+      - name: Generar imagenes por nicho
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python facebook-images/scripts/generate_images.py --niche motivacion
+
+      - name: Crear rama y abrir Pull Request para tu revisión
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "facebook-images/borrador-${{ github.run_number }}"
+          title: "[Revisar] Imagenes Facebook - run ${{ github.run_number }}"
+          body: |
+            Imagenes generadas para la pagina de motivacion. Recuerda: el nicho de
+            tarot/religion tiene techo de monetizacion mas bajo (ver notas del proyecto),
+            trata ese contenido como secundario.
+          add-paths: |
+            facebook-images/output/**

@@ -1,0 +1,53 @@
+name: "YouTube Kids - Generar contenido"
+
+# Se ejecuta 2 veces por semana (ajusta según tu ritmo real) y también
+# se puede lanzar a mano desde la pestaña "Actions" en GitHub.
+on:
+  schedule:
+    - cron: "0 8 * * 1,4"   # Lunes y jueves 08:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r youtube-kids/requirements.txt
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Generar guion (tema de valores/aprendizaje)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python youtube-kids/scripts/generate_script.py
+
+      - name: Generar voz (edge-tts, gratis)
+        run: python youtube-kids/scripts/generate_voice.py
+
+      - name: Montar video con FFmpeg (voz + stock de Pexels)
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python youtube-kids/scripts/build_video.py
+
+      - name: Crear rama y abrir Pull Request para tu revisión
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "youtube-kids/borrador-${{ github.run_number }}"
+          title: "[Revisar] Nuevo video canal infantil - run ${{ github.run_number }}"
+          body: |
+            Video generado automáticamente. Revisa guion, voz e imagen antes de aprobar.
+            No se sube a YouTube hasta que hagas merge de este PR.
+          add-paths: |
+            youtube-kids/output/**

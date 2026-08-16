@@ -1,0 +1,41 @@
+name: "Etsy - Generar diseños"
+
+on:
+  schedule:
+    - cron: "0 10 * * 6"   # Sábado 10:00 UTC (fin de semana, cuando tienes más horas)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r etsy/requirements.txt
+
+      - name: Generar propuestas de diseño + títulos/tags SEO
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python etsy/scripts/generate_designs.py
+
+      - name: Crear rama y abrir Pull Request para tu revisión
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "etsy/borrador-${{ github.run_number }}"
+          title: "[Revisar] Nuevos diseños Etsy - run ${{ github.run_number }}"
+          body: |
+            Diseños + título/descripción/tags generados. Revisa diferenciación
+            respecto a lo que ya está saturado en el nicho antes de aprobar.
+          add-paths: |
+            etsy/output/**
