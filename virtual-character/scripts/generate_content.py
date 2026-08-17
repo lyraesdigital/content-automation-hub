@@ -52,7 +52,7 @@ def carpeta_mas_reciente():
 
 def main():
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-3-flash")
 
     out_dir = carpeta_mas_reciente()
     tendencias = json.loads((out_dir / "tendencias.json").read_text())

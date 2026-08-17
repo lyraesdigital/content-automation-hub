@@ -50,7 +50,7 @@ def slugify(text: str) -> str:
 
 def main():
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-3-flash")
 
     run_dir = Path("etsy/output") / datetime.utcnow().strftime("%Y-%m-%d_%H%M")
     run_dir.mkdir(parents=True, exist_ok=True)

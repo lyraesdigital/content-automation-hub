@@ -46,7 +46,7 @@ Devuelve SOLO un JSON con este formato, sin texto adicional:
 
 def main():
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")  # capa gratuita
+    model = genai.GenerativeModel("gemini-3-flash")  # capa gratuita
 
     tema = random.choice(TEMAS)
     prompt = PROMPT_TEMPLATE.format(tema=tema)
