@@ -13,12 +13,18 @@ from pathlib import Path
 
 import google.generativeai as genai
 
-# EDITA ESTO con la personalidad real de tu personaje antes del primer run.
 PERSONAJE_BIO = """
-Nombre: (defínelo)
-Tono: cercano, directo, con humor ligero
-Valores que transmite: practicidad, ahorro de tiempo, honestidad sobre productos
-Publico objetivo: (defínelo)
+Nombre: Lyra
+Tono: cercana, serena, directa; wellness sin ser predicadora - habla como una
+amiga que sabe de fitness y bienestar, no como coach de venta agresiva
+Valores que transmite: equilibrio, constancia sobre perfeccion, practicidad,
+honestidad sobre lo que recomienda (nada de superlativos vacios)
+Publico objetivo: personas de 25 a 35 anos interesadas en vida fitness y
+bienestar, que buscan contenido genuino mas que motivacion generica
+Nicho de monetizacion: contenido + ebooks propios de fitness/bienestar,
+recomendaciones de producto ocasionales (no cada post)
+Identidad: personaje virtual generado por IA - se identifica como tal en su
+bio/perfil, no se presenta como persona real
 """
 
 PROMPT_TEMPLATE = """
