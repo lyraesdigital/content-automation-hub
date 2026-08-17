@@ -11,7 +11,8 @@ import random
 from datetime import datetime
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 # Rota entre temas de valores/aprendizaje para que no se repita siempre lo mismo.
 TEMAS = [
@@ -45,12 +46,15 @@ Devuelve SOLO un JSON con este formato, sin texto adicional:
 
 
 def main():
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-3-flash")  # capa gratuita
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])  # capa gratuita
 
     tema = random.choice(TEMAS)
     prompt = PROMPT_TEMPLATE.format(tema=tema)
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-3-flash",
+        contents=prompt,
+        config=types.GenerateContentConfig(response_mime_type="application/json"),
+    )
 
     # Limpieza básica por si el modelo envuelve el JSON en markdown.
     raw = response.text.strip().strip("```json").strip("```").strip()

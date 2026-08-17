@@ -24,7 +24,8 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 # Descripcion base del personaje - NO cambiar entre corridas, es lo que
 # mantiene su identidad visual reconocible en todo el contenido.
@@ -71,8 +72,7 @@ def main():
     parser.add_argument("--n", type=int, default=1, help="numero de variaciones")
     args = parser.parse_args()
 
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-3-pro-image")
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     prompt = f"{LYRA_DESCRIPCION_BASE}\n\nEscena: {ESCENAS[args.escena]}\n\nEste es un personaje ficticio para un proyecto de contenido de bienestar generado por IA."
 
@@ -82,7 +82,7 @@ def main():
         contenido = [
             "Manten la identidad visual EXACTA de esta referencia (mismo "
             "rostro, tono de piel, cabello, ojos):",
-            {"mime_type": "image/png", "data": referencia},
+            types.Part.from_bytes(data=referencia, mime_type="image/png"),
             prompt,
         ]
 
@@ -90,10 +90,10 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for i in range(args.n):
-        response = model.generate_content(contenido)
-        for part in response.parts:
-            if hasattr(part, "inline_data") and part.inline_data:
-                img_bytes = base64.b64decode(part.inline_data.data) if isinstance(part.inline_data.data, str) else part.inline_data.data
+        response = client.models.generate_content(model="gemini-3-pro-image", contents=contenido)
+        for part in response.candidates[0].content.parts:
+            if part.inline_data:
+                img_bytes = part.inline_data.data
                 out_path = out_dir / f"{args.escena}_{i}.png"
                 out_path.write_bytes(img_bytes)
                 print(f"Imagen generada: {out_path}")

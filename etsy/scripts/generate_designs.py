@@ -15,7 +15,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 NICHOS = [
     "tumbler wraps (disenos full-wrap para vasos termicos 20oz/30oz/40oz "
@@ -49,15 +50,18 @@ def slugify(text: str) -> str:
 
 
 def main():
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-3-flash")
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     run_dir = Path("etsy/output") / datetime.utcnow().strftime("%Y-%m-%d_%H%M")
     run_dir.mkdir(parents=True, exist_ok=True)
 
     for nicho in NICHOS:
         prompt = PROMPT_TEMPLATE.format(nicho=nicho)
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-3-flash",
+            contents=prompt,
+            config=types.GenerateContentConfig(response_mime_type="application/json"),
+        )
         raw = response.text.strip().strip("```json").strip("```").strip()
         data = json.loads(raw)
 

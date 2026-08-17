@@ -11,7 +11,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 PERSONAJE_BIO = """
 Nombre: Lyra
@@ -51,15 +52,18 @@ def carpeta_mas_reciente():
 
 
 def main():
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-3-flash")
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     out_dir = carpeta_mas_reciente()
     tendencias = json.loads((out_dir / "tendencias.json").read_text())
     top_tendencia = tendencias[0]["tendencia"] if tendencias else "producto de temporada"
 
     prompt = PROMPT_TEMPLATE.format(personaje=PERSONAJE_BIO, tendencia=top_tendencia)
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-3-flash",
+        contents=prompt,
+        config=types.GenerateContentConfig(response_mime_type="application/json"),
+    )
     raw = response.text.strip().strip("```json").strip("```").strip()
     data = json.loads(raw)
     data["tendencia_usada"] = top_tendencia

@@ -12,7 +12,8 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 PROMPT_TEMPLATE = """
 Eres creador de contenido para una pagina de Facebook de nicho: {nicho}
@@ -34,11 +35,14 @@ def main():
     parser.add_argument("--niche", required=True, choices=["motivacion", "religion", "tarot"])
     args = parser.parse_args()
 
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-3-flash")
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     prompt = PROMPT_TEMPLATE.format(nicho=args.niche)
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-3-flash",
+        contents=prompt,
+        config=types.GenerateContentConfig(response_mime_type="application/json"),
+    )
     raw = response.text.strip().strip("```json").strip("```").strip()
     data = json.loads(raw)
 
