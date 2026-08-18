@@ -39,7 +39,7 @@ def main():
 
     prompt = PROMPT_TEMPLATE.format(nicho=args.niche)
     response = client.models.generate_content(
-        model="gemini-3-flash",
+        model="gemini-flash-latest",
         contents=prompt,
         config=types.GenerateContentConfig(response_mime_type="application/json"),
     )

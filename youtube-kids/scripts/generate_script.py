@@ -51,7 +51,7 @@ def main():
     tema = random.choice(TEMAS)
     prompt = PROMPT_TEMPLATE.format(tema=tema)
     response = client.models.generate_content(
-        model="gemini-3-flash",
+        model="gemini-flash-latest",
         contents=prompt,
         config=types.GenerateContentConfig(response_mime_type="application/json"),
     )

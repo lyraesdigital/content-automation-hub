@@ -90,7 +90,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for i in range(args.n):
-        response = client.models.generate_content(model="gemini-3-pro-image", contents=contenido)
+        response = client.models.generate_content(model="gemini-3-pro-image-preview", contents=contenido)
         for part in response.candidates[0].content.parts:
             if part.inline_data:
                 img_bytes = part.inline_data.data
