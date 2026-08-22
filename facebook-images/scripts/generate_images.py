@@ -12,6 +12,11 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 
+import sys
+from pathlib import Path as _Path
+sys.path.insert(0, str(_Path(__file__).resolve().parents[2]))
+from shared.gemini_retry import generate_with_retry
+
 from google import genai
 from google.genai import types
 
@@ -38,7 +43,8 @@ def main():
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     prompt = PROMPT_TEMPLATE.format(nicho=args.niche)
-    response = client.models.generate_content(
+    response = generate_with_retry(
+        client,
         model="gemini-flash-latest",
         contents=prompt,
         config=types.GenerateContentConfig(response_mime_type="application/json"),
