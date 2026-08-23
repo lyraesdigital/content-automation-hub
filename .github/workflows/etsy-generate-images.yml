@@ -1,0 +1,40 @@
+name: "Etsy - Generar imágenes (gratis, prueba)"
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r etsy/requirements.txt
+
+      - name: Generar imágenes (Gemini 2.5 Flash Image, gratis)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python etsy/scripts/generate_images.py
+
+      - name: Crear rama y abrir Pull Request para tu revisión
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "etsy/imagenes-${{ github.run_number }}"
+          title: "[Revisar] Imágenes Etsy generadas (Gemini gratis) - run ${{ github.run_number }}"
+          body: |
+            Imágenes generadas con Gemini 2.5 Flash Image (capa gratuita).
+            Compara la calidad contra Higgsfield antes de decidir si vale
+            la pena pagar por mejor resolución/consistencia.
+          add-paths: |
+            etsy/output/**
