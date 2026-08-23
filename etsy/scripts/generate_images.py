@@ -26,7 +26,10 @@ from google.genai import types
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from shared.gemini_retry import generate_with_retry
 
+import time
+
 MODELO_GRATIS = "gemini-2.5-flash-image"
+PAUSA_ENTRE_IMAGENES = 15  # segundos - respeta el limite de rate del tier gratis
 
 
 def carpeta_mas_reciente():
@@ -85,6 +88,9 @@ def procesar_nicho(client, conceptos_path):
                 out_path = out_dir / f"concepto_{i}.png"
                 out_path.write_bytes(part.inline_data.data)
                 print(f"Imagen generada: {out_path}")
+
+        if i < len(conceptos) - 1:
+            time.sleep(PAUSA_ENTRE_IMAGENES)
 
 
 if __name__ == "__main__":
