@@ -29,7 +29,7 @@ from shared.gemini_retry import generate_with_retry
 import time
 
 MODELO_GRATIS = "gemini-2.5-flash-image"
-PAUSA_ENTRE_IMAGENES = 15  # segundos - respeta el limite de rate del tier gratis
+PAUSA_ENTRE_IMAGENES = 25  # segundos - respeta el limite de rate del tier gratis
 
 
 def carpeta_mas_reciente():
@@ -69,7 +69,7 @@ def procesar_nicho(client, conceptos_path):
     conceptos = data if isinstance(data, list) else data.get("conceptos", [])
 
     for i, concepto in enumerate(conceptos):
-        descripcion = concepto.get("descripcion") or concepto.get("concepto") or str(concepto)
+        descripcion = concepto.get("descripcion_visual") or concepto.get("descripcion") or concepto.get("concepto") or str(concepto)
         prompt = (
             f"Diseno grafico para producto de venta: {descripcion}. "
             f"Estilo ilustracion limpia, colores vibrantes, sin texto "
