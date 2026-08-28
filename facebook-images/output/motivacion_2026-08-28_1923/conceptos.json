@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematográfico de una persona empapada entrenando bajo la lluvia en una calle solitaria a las 5 AM, con iluminación fría de farolas y vapor saliendo de su respiración.",
+      "texto_imagen": "Nadie vio tus noches oscuras. Que no opinen sobre tu amanecer.",
+      "copy_post": "El trabajo silencioso siempre habla más fuerte que las dudas de los demás. Sigue construyendo aunque nadie esté aplaudiendo todavía. Tu momento llegará.",
+      "razon_retencion": "Apela a la validación del esfuerzo no reconocido y al arquetipo del progreso solitario, activando el deseo del usuario de compartirlo en sus historias como declaración de superación personal."
+    },
+    {
+      "concepto_visual": "Composición dividida: a la izquierda, una persona frustrada mirando un reloj en una oficina gris; a la derecha, la misma persona en la cima de una colina mirando un horizonte dorado al atardecer.",
+      "texto_imagen": "Dolerá levantarse temprano, pero dolerá más llegar a viejo sin lograrlo.",
+      "copy_post": "El sacrificio es temporal, pero el arrepentimiento dura para siempre. Elige con sabiduría qué dolor estás dispuesto a soportar hoy. Guarda este recordatorio para tus días difíciles.",
+      "razon_retencion": "Utiliza el disparador del miedo al arrepentimiento y la aversión a la pérdida, lo que genera alta tasa de guardados (para releerlo en momentos de duda) y comentarios de autoafirmación."
+    },
+    {
+      "concepto_visual": "Un león con cicatrices caminando con paso firme y mirada fija hacia adelante, mientras al fondo una multitud desenfocada murmura en tonos oscuros y destellos dorados.",
+      "texto_imagen": "No naciste para encajar en el molde que otros no pudieron romper.",
+      "copy_post": "Deja de pedir disculpas por tener ambiciones más grandes que tu entorno actual. Quien no entiende tu visión solo intentará frenar tu vuelo. Camina sin mirar atrás.",
+      "razon_retencion": "Fomenta el sentido de identidad, exclusividad y liderazgo ('mindset de león'), lo cual genera alto volumen de compartidos directos para proyectar fortaleza y diferenciación ante sus contactos de Facebook."
+    }
+  ]
+}
