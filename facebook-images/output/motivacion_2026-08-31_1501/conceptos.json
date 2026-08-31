@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematográfico de una persona de espaldas caminando hacia la niebla en una montaña al amanecer, con un rayo de sol rompiendo la oscuridad. Estilo épico, colores contrastados.",
+      "texto_imagen": "El proceso es solitario porque la cima no es para cualquiera.",
+      "copy_post": "Nadie te aplaude en las horas silenciosas de trabajo duro, pero es ahí donde realmente se gana la batalla. Etiqueta a esa persona que nunca se rinde.",
+      "razon_retencion": "Conecta con el sentimiento de soledad que experimentan los emprendedores y atletas, generando una fuerte necesidad de validación y de compartirlo en su muro para identificarse."
+    },
+    {
+      "concepto_visual": "Imagen dividida en dos: la mitad izquierda muestra una habitación oscura y desordenada con una pantalla brillando; la mitad derecha muestra la misma habitación limpia, con la luz del sol entrando y alguien estirando. Contraste dramático.",
+      "texto_imagen": "Tu futuro se construye en las mañanas que decides no rendirte.",
+      "copy_post": "El cambio real comienza cuando dejas de negociar con la comodidad. ¿Cuál de estas dos versiones eres hoy?",
+      "razon_retencion": "El formato de contraste visual detiene el scroll inmediatamente y la pregunta final en el copy fomenta los comentarios y el intercambio de experiencias."
+    },
+    {
+      "concepto_visual": "Macrofotografía de una semilla rompiendo una roca seca y dura, con una pequeña hoja verde emergiendo con fuerza y vitalidad. Iluminación focalizada en la planta.",
+      "texto_imagen": "Lo que hoy te presiona, mañana será tu fortaleza.",
+      "copy_post": "La presión no está aquí para destruirte, está moldeando tu carácter para lo que viene. Comparte esto con alguien que necesite leerlo hoy.",
+      "razon_retencion": "Utiliza una metáfora visual poderosa de la naturaleza que es universalmente comprendida y ofrece esperanza inmediata, ideal para ser compartida en momentos difíciles."
+    }
+  ]
+}
