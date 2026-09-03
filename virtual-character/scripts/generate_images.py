@@ -1,31 +1,28 @@
 """
-Genera imagenes del personaje virtual (Lyra) usando Nano Banana Pro
-(gemini-3-pro-image) via la misma GEMINI_API_KEY que ya usas para texto.
+Genera imagenes del personaje virtual (Lyra) usando Gemini 2.5 Flash Image
+("Nano Banana" base, gratis) via la misma GEMINI_API_KEY que ya usas para
+texto. NO usa la version "Pro" para evitar requerir facturacion.
 
-IMPORTANTE - LEE ANTES DE CORRER:
-1. Generacion de imagenes NO tiene capa gratuita. Necesitas facturacion
-   activa en el proyecto de Google Cloud asociado a tu API key.
-2. Configura un presupuesto en Google Cloud Console (Billing > Budgets &
-   alerts) ANTES de correr esto en volumen - igual que hicimos en GitHub.
-3. Costo aproximado: ~$0.13 por imagen en resolucion 1K-2K (precios ago 2026,
-   verifica en https://ai.google.dev/gemini-api/docs/pricing antes de escalar).
-4. Este script mantiene consistencia del personaje pasando la PRIMERA imagen
-   generada como referencia en las siguientes corridas (hasta 14 imagenes de
-   referencia soporta el modelo).
+NOTA: calidad/consistencia algo menor que Nano Banana Pro, pero gratis y
+suficiente para validar contenido antes de invertir en algo pago.
 
 Uso:
-    python generate_images.py --escena "yoga_studio_mañana"
-    python generate_images.py --escena "gym_entrenamiento" --n 3
+    python generate_images.py --escena "cafe_manana"
+    python generate_images.py --escena "viaje_paisaje" --n 3
 """
 import os
-import json
-import base64
+import sys
 import argparse
 from datetime import datetime
 from pathlib import Path
 
 from google import genai
 from google.genai import types
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from shared.gemini_retry import generate_with_retry
+
+MODELO_GRATIS = "gemini-2.5-flash-image"
 
 # Descripcion base del personaje - NO cambiar entre corridas, es lo que
 # mantiene su identidad visual reconocible en todo el contenido.
@@ -57,6 +54,25 @@ ESCENAS = {
         "un batido o botella de agua, expresion relajada y natural, luz "
         "de dia natural"
     ),
+    "cafe_manana": (
+        "sentada en una mesa de cafe al aire libre, sosteniendo una taza de "
+        "cafe, luz calida de mañana, sonrisa relajada y natural, ambiente "
+        "urbano acogedor"
+    ),
+    "viaje_paisaje": (
+        "de pie frente a un paisaje de montaña o costa, ropa casual de "
+        "viaje, mochila pequeña, expresion de asombro tranquilo, luz "
+        "natural de exterior, composicion tipo foto de viaje"
+    ),
+    "deporte_aire_libre": (
+        "corriendo o caminando en un sendero natural al aire libre, ropa "
+        "deportiva, expresion energica y motivada, luz natural de dia"
+    ),
+    "con_mascota": (
+        "sentada en el pasto de un parque, acompañada de un perro pequeño "
+        "o mediano, sonrisa calida genuina, luz natural de tarde, ambiente "
+        "relajado y cotidiano"
+    ),
 }
 
 
@@ -74,7 +90,7 @@ def main():
 
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-    prompt = f"{LYRA_DESCRIPCION_BASE}\n\nEscena: {ESCENAS[args.escena]}\n\nEste es un personaje ficticio para un proyecto de contenido de bienestar generado por IA."
+    prompt = f"{LYRA_DESCRIPCION_BASE}\n\nEscena: {ESCENAS[args.escena]}\n\nEste es un personaje ficticio para un proyecto de contenido de bienestar/lifestyle generado por IA."
 
     referencia = cargar_referencia()
     contenido = [prompt]
@@ -90,7 +106,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for i in range(args.n):
-        response = client.models.generate_content(model="gemini-3-pro-image-preview", contents=contenido)
+        response = generate_with_retry(client, model=MODELO_GRATIS, contents=contenido)
         for part in response.candidates[0].content.parts:
             if part.inline_data:
                 img_bytes = part.inline_data.data
