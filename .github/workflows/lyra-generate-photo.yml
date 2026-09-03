@@ -1,0 +1,53 @@
+name: "Lyra - Generar fotos (gratis, prueba)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      escena:
+        description: "Escena a generar"
+        required: true
+        default: "cafe_manana"
+        type: choice
+        options:
+          - yoga_studio_mañana
+          - gym_entrenamiento
+          - lifestyle_casual
+          - cafe_manana
+          - viaje_paisaje
+          - deporte_aire_libre
+          - con_mascota
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-photo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r virtual-character/requirements.txt
+
+      - name: Generar foto de Lyra (Gemini 2.5 Flash Image, gratis)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python virtual-character/scripts/generate_images.py --escena "${{ github.event.inputs.escena }}"
+
+      - name: Crear rama y abrir Pull Request para tu revisión
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "lyra/foto-${{ github.run_number }}"
+          title: "[Revisar] Foto de Lyra (${{ github.event.inputs.escena }}) - run ${{ github.run_number }}"
+          body: |
+            Foto generada con Gemini 2.5 Flash Image (capa gratuita).
+            Revisa consistencia de identidad antes de aprobar.
+          add-paths: |
+            virtual-character/output/**
