@@ -6,17 +6,23 @@ modelo de respaldo si el principal sigue saturado tras varios intentos.
 Uso:
     from shared.gemini_retry import generate_with_retry
 
+    # texto (usa el respaldo de texto por defecto)
     response = generate_with_retry(client, model="gemini-flash-latest",
                                     contents=prompt, config=config)
+
+    # imagenes (sin respaldo de texto - no genera imagenes)
+    response = generate_with_retry(client, model="gemini-2.5-flash-image",
+                                    contents=contenido, modelo_respaldo=None)
 """
 import time
 from google.genai import errors as genai_errors
 
 REINTENTABLES = (503, 429)
-MODELO_RESPALDO = "gemini-flash-lite-latest"
+MODELO_RESPALDO_TEXTO = "gemini-flash-lite-latest"
 
 
-def generate_with_retry(client, max_intentos=4, espera_inicial=10, **kwargs):
+def generate_with_retry(client, max_intentos=5, espera_inicial=10,
+                         modelo_respaldo=MODELO_RESPALDO_TEXTO, **kwargs):
     modelo_original = kwargs.get("model")
     for intento in range(1, max_intentos + 1):
         try:
@@ -28,12 +34,13 @@ def generate_with_retry(client, max_intentos=4, espera_inicial=10, **kwargs):
             if intento == max_intentos:
                 raise
             # A mitad de los intentos, si seguimos fallando, probamos el
-            # modelo de respaldo por si el problema es especifico del
-            # modelo principal (saturacion puntual de un modelo nuevo).
-            if intento == max_intentos - 1 and kwargs.get("model") == modelo_original:
+            # modelo de respaldo - SOLO si se proporciono uno compatible
+            # (ej. no usar un modelo de texto como respaldo para imagenes).
+            if (modelo_respaldo and intento == max_intentos - 1
+                    and kwargs.get("model") == modelo_original):
                 print(f"[fallback] {modelo_original} sigue saturado, "
-                      f"probando {MODELO_RESPALDO}...")
-                kwargs["model"] = MODELO_RESPALDO
+                      f"probando {modelo_respaldo}...")
+                kwargs["model"] = modelo_respaldo
             espera = espera_inicial * (2 ** (intento - 1))
             print(f"[reintento {intento}/{max_intentos}] {codigo} - "
                   f"esperando {espera}s antes de reintentar...")

@@ -81,6 +81,7 @@ def procesar_nicho(client, conceptos_path):
             client,
             model=MODELO_GRATIS,
             contents=prompt,
+            modelo_respaldo=None,
         )
 
         for part in response.candidates[0].content.parts:

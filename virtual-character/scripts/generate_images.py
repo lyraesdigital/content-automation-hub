@@ -106,7 +106,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for i in range(args.n):
-        response = generate_with_retry(client, model=MODELO_GRATIS, contents=contenido)
+        response = generate_with_retry(client, model=MODELO_GRATIS, contents=contenido, modelo_respaldo=None)
         for part in response.candidates[0].content.parts:
             if part.inline_data:
                 img_bytes = part.inline_data.data
