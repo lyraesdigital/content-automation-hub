@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Plano medio cinematográfico de un escritorio de madera rústica iluminado por una única lámpara tenue en medio de una habitación a oscuras. Afuera de la ventana llueve intensamente. Sobre la mesa hay planos, cuadernos con notas y una taza humeante, con la silueta de una persona trabajando concentrada.",
+      "texto_imagen": "El precio de la grandeza siempre se paga en silencio y a solas.",
+      "copy_post": "Nadie ve las noches sin dormir ni las dudas superadas; la mayoría solo aplaudirá el resultado final. Sigue construyendo tu futuro aunque hoy nadie esté mirando. Tu momento llegará.",
+      "razon_retencion": "Valida el esfuerzo solitario y la disciplina invisible del usuario. Genera alto número de compartidos porque la gente lo usa como una declaración de identidad y orgullo sobre su proceso personal."
+    },
+    {
+      "concepto_visual": "Composición minimalista y dramática en un desierto oscuro con un reloj de arena gigante de cristal hiperrealista. En lugar de arena común, caen partículas doradas brillantes que se evaporan al tocar la base, simbolizando oportunidades y tiempo perdido.",
+      "texto_imagen": "El tiempo no se detiene a esperar que estés listo. Empieza hoy.",
+      "copy_post": "Esperar las condiciones perfectas es la trampa favorita de la procrastinación. Da el primer paso con miedo y dudas, pero avanza. En un año agradecerás haber tomado la decisión hoy.",
+      "razon_retencion": "El impacto visual del reloj dorado detiene el scroll (stop-rate alto). El mensaje ataca el dolor universal de posponer metas, provocando que la audiencia guarde el post como recordatorio o lo comparta para motivar a amigos."
+    },
+    {
+      "concepto_visual": "Detalle en primer plano de una espada antigua de acero que estuvo rota pero ha sido reparada con oro fundido brillante (estilo Kintsugi japonés), sostenida con firmeza por una mano con cicatrices. Fondo oscuro con chispas de forja flotando en el aire.",
+      "texto_imagen": "Tus cicatrices no son debilidad; son prueba de que sobreviviste y ganaste.",
+      "copy_post": "Cada herida del pasado te forjó con el carácter inquebrantable que tienes ahora. No te avergüences de lo que dolió, úsalo como combustible para llegar a la cima. Eres mucho más fuerte de lo que crees.",
+      "razon_retencion": "Conexión emocional profunda basada en la superación de adversidades. En Facebook, el contenido de resiliencia genera interacciones masivas porque los usuarios se sienten identificados a nivel personal y lo comparten para inspirar a su círculo cercano."
+    }
+  ]
+}
