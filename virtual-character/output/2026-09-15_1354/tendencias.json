@@ -1,0 +1,22 @@
+[
+  {
+    "semilla": "accesorios movil",
+    "tendencia": "tienda accesorios movil",
+    "valor": 50
+  },
+  {
+    "semilla": "regalos originales",
+    "tendencia": "regalos originales para recien nacidos",
+    "valor": 50
+  },
+  {
+    "semilla": "regalos originales",
+    "tendencia": "regalos originales para cumpleaños",
+    "valor": 40
+  },
+  {
+    "semilla": "regalos originales",
+    "tendencia": "regalos originales para novios boda",
+    "valor": 40
+  }
+]
