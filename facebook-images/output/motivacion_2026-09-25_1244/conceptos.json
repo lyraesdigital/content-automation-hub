@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematográfico de unas zapatillas desgastadas sobre el asfalto mojado al amanecer, con una luz dorada filtrándose entre edificios urbanos. Estilo realista y emotivo.",
+      "texto_imagen": "Nadie aplaude en los entrenamientos. Todos aplauden en los resultados.",
+      "copy_post": "El verdadero progreso ocurre en silencio, cuando nadie te está mirando. Sigue construyendo tu éxito desde las sombras.",
+      "razon_retencion": "Conecta con el esfuerzo solitario que sufre la audiencia, generando identificación inmediata y un fuerte deseo de validación compartida."
+    },
+    {
+      "concepto_visual": "Una taza de café caliente sobre un escritorio de madera al lado de una ventana con lluvia, con un cuaderno abierto que dice 'Día 1' en la primera página. Iluminación cálida y acogedora.",
+      "texto_imagen": "El mejor momento para empezar era hace un año. El segundo mejor es hoy.",
+      "copy_post": "Deja de esperar el momento perfecto. Empieza con lo que tienes, donde estás, y haz que hoy cuente.",
+      "razon_retencion": "Combina la estética acogedora (muy compartible en Facebook) con un llamado a la acción mental contra la procrastinación."
+    },
+    {
+      "concepto_visual": "Un león caminando con determinación en la sabana africana al atardecer, capturado en cámara lenta con tonos contrastados y dramáticos.",
+      "texto_imagen": "No expliques tus metas. Demuéstralas con tus logros.",
+      "copy_post": "Guarda silencio sobre tus planes y deja que el éxito haga todo el ruido por ti. ¿Quién más está modo silencio este mes?",
+      "razon_retencion": "Utiliza un arquetipo de poder (el león) y una frase directa que los usuarios tienden a compartir para enviar indirectas en sus perfiles."
+    }
+  ]
+}
