@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematográfico de unas manos firmes atándose las agujetas de unas zapatillas de correr, con gotas de lluvia cayendo sobre el asfalto oscuro al amanecer. Tono frío que contrasta con la energía del momento.",
+      "texto_imagen": "Nadie viene a salvarte. Es hora de empezar.",
+      "copy_post": "El momento perfecto no existe, solo existe la decisión de actuar hoy. ¿Vas a seguir esperando o vas a dar el primer paso?",
+      "razon_retencion": "Conecta con la frustración diaria y ofrece una llamada a la acción dura pero necesaria, generando identificación inmediata y urgencia por compartir."
+    },
+    {
+      "concepto_visual": "Imagen dividida (split screen): Del lado izquierdo una persona acostada viendo el techo con luz tenue; del lado derecho la misma silueta levantando pesas bajo una luz intensa. Estilo dramático y minimalista.",
+      "texto_imagen": "El dolor de la disciplina o el dolor del remordimiento. Tú eliges.",
+      "copy_post": "Ambos duelen, pero solo uno te acerca a la vida que realmente quieres construir. Etiqueta a quien necesita leer esto hoy.",
+      "razon_retencion": "La dualidad visual detiene el scroll instantáneamente y la dicotomía de la elección fuerza al usuario a reflexionar y compartir con amigos."
+    },
+    {
+      "concepto_visual": "Una semilla rompiendo una roca seca y agrietada desde el centro, capturada en macrofotografía con iluminación cenital dorada. Transmite resiliencia y poder silencioso.",
+      "texto_imagen": "Tu entorno es difícil, pero tu crecimiento es inevitable.",
+      "copy_post": "No importa cuán dura sea la tierra en la que te tocó crecer, tu fuerza interior siempre romperá cualquier límite. Comparte si estás construyendo tu futuro en silencio.",
+      "razon_retencion": "Usa una metáfora visual poderosa de la naturaleza que genera esperanza y orgullo, motivando al usuario a compartirlo como reflejo de su propia lucha."
+    }
+  ]
+}
