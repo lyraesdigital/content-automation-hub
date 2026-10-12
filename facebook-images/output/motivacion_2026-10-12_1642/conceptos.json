@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematografico de unos nudillos manchados de tiza y sudor apoyados contra un saco de boxeo desgastado, iluminacion dramatica lateral, tonos oscuros y cinematograficos.",
+      "texto_imagen": "El proceso es invisible. Los resultados son ruidosos.",
+      "copy_post": "Nadie aplaude tus madrugadas, pero todos aplaudirán tus logros. Sigue construyendo en silencio.",
+      "razon_retencion": "Genera contraste emocional inmediato y toca una fibra profunda sobre el esfuerzo no reconocido, impulsando al usuario a compartirlo para validar su propio sacrificio."
+    },
+    {
+      "concepto_visual": "Una taza de cafe caliente a medio terminar sobre un escritorio de madera al amanecer, con la pantalla de una laptop apagada reflejando las primeras luces del dia a traves de la ventana.",
+      "texto_imagen": "Mientras el mundo duerme, tu futuro se esta escribiendo.",
+      "copy_post": "La diferencia entre donde estas y donde quieres estar se reduce a lo que haces a las 6:00 AM.",
+      "razon_retencion": "Conecta directamente con la rutina diaria y el deseo de superacion, generando un fuerte sentido de identidad que motiva a etiquetar a amigos madrugadores."
+    },
+    {
+      "concepto_visual": "Una bota de excursionista pisando la cima de una montana rocosa, con un mar de nubes debajo y un horizonte dorado al fondo, toma en picada mostrando el vasto paisaje.",
+      "texto_imagen": "Valio la pena cada maldito paso cuesta arriba.",
+      "copy_post": "Cuando pienses en rendirte, recuerda la vista que te espera en la cima. No te detengas ahora.",
+      "razon_retencion": "La combinacion de un paisaje epico con una frase de alivio y triunfo genera un pico emocional alto, ideal para ser guardado y compartido por quienes buscan inspiracion."
+    }
+  ]
+}
