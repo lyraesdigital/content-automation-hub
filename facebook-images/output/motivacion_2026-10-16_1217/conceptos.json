@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematográfico de unas manos firmes atándose las zapatillas de correr bajo la lluvia, con iluminación dramática de neón reflejándose en los charcos.",
+      "texto_imagen": "A nadie le importa cómo te sientes. Solo importan tus resultados.",
+      "copy_post": "La motivación es un lujo que no siempre puedes permitirte, pero la disciplina sí. Guarda esto para el día que no quieras levantarte.",
+      "razon_retencion": "Genera impacto inmediato por su crudeza y verdad incómoda, lo que provoca que los usuarios lo compartan para identificarse o desafiar a su comunidad."
+    },
+    {
+      "concepto_visual": "Una semilla brotando rompiendo una roca gris y pesada, capturada en fotografía macro con un fondo oscuro y un rayo de luz dorada iluminando el brote.",
+      "texto_imagen": "Tu proceso actual no es tu castigo, es tu preparación.",
+      "copy_post": "Lo que hoy te presiona es exactamente lo que te está haciendo indestructible. Etiqueta a alguien que necesite leer esto hoy.",
+      "razon_retencion": "Utiliza una metáfora visual muy potente que pausa el scroll, combinada con un mensaje de validación emocional que impulsa a etiquetar y compartir."
+    },
+    {
+      "concepto_visual": "Pantalla dividida (split-screen): arriba una persona durmiendo en la comodidad de su cama a las 5:00 AM; abajo, otra persona trabajando en su portátil en una habitación oscura.",
+      "texto_imagen": "El futuro que deseas le pertenece a quien se levanta a construirlo.",
+      "copy_post": "La diferencia entre tus sueños y tu realidad se reduce a lo que haces en las horas que nadie te ve. ¿De qué lado estás?",
+      "razon_retencion": "El contraste visual activa el FOMO (miedo a perderse de algo) y la culpa constructiva, obligando al espectador a reflexionar y compartir para motivar a otros."
+    }
+  ]
+}
