@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Primer plano cinematografico de unos tenis gastados y llenos de barro sobre asfalto mojado bajo la lluvia, con una luz calida de farola de fondo.",
+      "texto_imagen": "Nadie vio las veces que quisiste rendirte. Sigue.",
+      "copy_post": "El proceso es solitario y silencioso, pero la recompensa hace ruido al final. Etiqueta a esa persona que necesita leer esto hoy.",
+      "razon_retencion": "Conecta emocionalmente con el esfuerzo invisible y solitario del espectador, generando empatia inmediata y un fuerte deseo de validacion a traves de compartir."
+    },
+    {
+      "concepto_visual": "Split-screen vertical: la mitad izquierda muestra una habitacion oscura con desorden; la mitad derecha muestra un amanecer brillante desde la ventana de una oficina limpia.",
+      "texto_imagen": "Tu futuro se construye en las decisiones que nadie ve.",
+      "copy_post": "El cambio real no pasa de la noche a la mañana, pasa cuando decides vencer la pereza matutina. ¿De que lado estas hoy?",
+      "razon_retencion": "El contraste visual inmediato detiene el scroll (patron interruptor) y obliga al cerebro a comparar ambas realidades, impulsando la interaccion en comentarios."
+    },
+    {
+      "concepto_visual": "Una taza de cafe humeante sobre un escritorio de madera al borde del colapso con notas adhesivas de metas, iluminada por los primeros rayos del sol.",
+      "texto_imagen": "Menos excusas, mas accion. Hoy es el dia.",
+      "copy_post": "Deja de esperar el lunes perfecto o el momento ideal para empezar. Tu vida cambia cuando tomas el control ahora.",
+      "razon_retencion": "Es una imagen sumamente relatable y estetica (aesthetic) que funciona perfectamente como fondo de pantalla, lo que dispara las veces que se guarda y se comparte."
+    }
+  ]
+}
