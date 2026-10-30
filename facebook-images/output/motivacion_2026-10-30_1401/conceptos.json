@@ -1,0 +1,23 @@
+{
+  "nicho": "motivacion",
+  "conceptos": [
+    {
+      "concepto_visual": "Plano cinematográfico y oscuro de una persona empapada entrenando sola bajo la lluvia nocturna en una calle solitaria, con su reflejo en un charco de agua mostrando una versión futura de sí misma con postura triunfante y traje impecable.",
+      "texto_imagen": "Nadie vio tus noches oscuras, pero todos aplaudirán tu luz.",
+      "copy_post": "El éxito no se construye frente al público, sino en el silencio de tus peores días. Sigue empujando aunque hoy nadie crea en ti. Guarda este post para recordarlo cuando sientas ganas de rendirte.",
+      "razon_retencion": "Activa el sesgo del esfuerzo invisible y la autovalidación; los usuarios en Facebook suelen compartir este tipo de mensajes como declaración pública de resiliencia y orgullo personal."
+    },
+    {
+      "concepto_visual": "Primer plano hiperrealista y emotivo de dos manos entrelazadas: la mano envejecida y llena de callos de un padre sosteniendo la mano joven de su hijo que lleva puesto un birrete de graduación, con iluminación dorada y nostálgica.",
+      "texto_imagen": "No lo hago por fama. Lo hago para retirar a mis padres.",
+      "copy_post": "Tu mayor motivación no debería ser el lujo, sino devolverles a tus padres un poco de lo que sacrificaron por ti. Haz que cada gota de su sudor haya valido la pena. Menciona a la persona por la que te levantas a luchar cada día.",
+      "razon_retencion": "Apela a la devoción familiar y la gratitud, el disparador emocional de mayor viralidad orgánica en Facebook, incentivando comentarios con etiquetas a familiares y compartidos directos en muros personales."
+    },
+    {
+      "concepto_visual": "Composición conceptual minimalista de un reloj de arena gigante en medio de una encrucijada desértica; la mitad superior contiene personas inmóviles viendo pantallas y la mitad inferior muestra un paisaje próspero que se desvanece en polvo dorado.",
+      "texto_imagen": "El dinero regresa, pero el tiempo jamás. Deja de postergar tu vida.",
+      "copy_post": "Estás a una sola decisión incómoda de transformar por completo los próximos cinco años de tu historia. No esperes las condiciones perfectas, empieza con lo que tienes hoy. Comparte esto con alguien que necesite despertar de su zona de confort.",
+      "razon_retencion": "Provoca disonancia cognitiva y urgencia por el paso del tiempo (FOMO existencial), deteniendo el scroll de inmediato y motivando a compartirlo como un consejo o advertencia fraternal hacia amigos."
+    }
+  ]
+}
